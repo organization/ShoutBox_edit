@@ -1,0 +1,10 @@
+name: ShoutBox
+version: "1.0.0"
+api: [1.13.0, 2.0.0]
+author: ChoungYoo_
+main: ShoutBox\ShoutBox
+commands:
+  일반확성기:
+    description: 일반 확성기 입니다.
+  고급확성기:
+    description: 고급 확성기 입니다.
