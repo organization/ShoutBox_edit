@@ -33,7 +33,7 @@ class ShoutBox extends PluginBase implements Listener {
   	  $message = implode(" ", $args);
   	  $this->getServer()->broadcastMessage("§6[ 일반확성기 ] ". $sender->getName() ." : $message");
       $sender->sendMessage("§3[ 서버 ] 확성기 사용권 1개를 사용하였습니다 !");
-	  $mute = true;
+	  $this->mute = true;
 	  $task = new ChatDelayTask($this);
       $this->getServer()->getScheduler()->scheduleDelayedTask($task, 100);
       return true;
@@ -50,14 +50,14 @@ class ShoutBox extends PluginBase implements Listener {
   	  $this->getServer()->broadcastMessage ("§6[ 고급확성기 ] ".$sender->getName()." : $message");
   	  $this->getServer()->broadcastMessage ("§7✿--------------------------------------✿");
   	  $sender->sendMessage("§3[ 서버 ] 확성기 사용권 3개를 사용하였습니다 !");
-	  $mute = true;
+	  $this->mute = true;
 	  $task = new ChatDelayTask($this);
   	  $this->getServer()->getScheduler()->scheduleDelayedTask($task, 200);
   	  return true;
   	}
   }
     public function onChat(PlayerChatEvent $event) {
-		if ( $mute = true) {
+		if ( $this->mute = true) {
 			$event->setCancelled ();
 		}
 	}
