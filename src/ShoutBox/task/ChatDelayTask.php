@@ -11,7 +11,7 @@ class ChatDelayTask extends PluginTask {
 		parent::__construct ( $owner );
 	}
 	public function onRun($currentTick) {
-     $mute = false;
+     $this->owner->mute = false;
 	}
 }
 ?>
