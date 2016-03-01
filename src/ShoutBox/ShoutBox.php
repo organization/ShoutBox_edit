@@ -57,7 +57,7 @@ class ShoutBox extends PluginBase implements Listener {
   	}
   }
     public function onChat(PlayerChatEvent $event) {
-		if ( $this->mute = true) {
+		if ( $this->mute == true) {
 			$event->setCancelled ();
 		}
 	}
