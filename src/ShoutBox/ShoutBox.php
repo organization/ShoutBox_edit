@@ -17,6 +17,7 @@ use pocketmine\scheduler\ServerScheduler;
 use pocketmine\Server;
 
 class ShoutBox extends PluginBase implements Listener {
+	private $mute = false;
 	public function onEnable() {
 		$this->getLogger()->info("§3✿ ShoutBox_v1.0 on Loading ✿");
     $this->getServer()->getPluginManager()->registerEvents($this,$this);
@@ -57,9 +58,16 @@ class ShoutBox extends PluginBase implements Listener {
   	}
   }
     public function onChat(PlayerChatEvent $event) {
-		if ( $this->mute == true) {
+		if ( $this->mute === true) {
 			$event->setCancelled ();
+			return;
 		}
+	}
+	public function setMute($bool) {
+		$this->mute = $bool;
+	}
+	public function getMute() {
+		return $this->mute;
 	}
 }
 
